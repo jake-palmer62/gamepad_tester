@@ -38,10 +38,11 @@ body {
   fill: none;
 }
 
+/* Face buttons - moved further right */
 .button {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: 2px solid #fff;
   border-radius: 50%;
   display: flex;
@@ -52,29 +53,46 @@ body {
   transition: all 0.1s;
 }
 
-.button.pressed {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(0.95);
-}
+#button-y { right: 120px; top: 110px; }
+#button-b { right: 80px; top: 150px; }
+#button-a { right: 120px; top: 190px; }
+#button-x { right: 160px; top: 150px; }
 
-/* Face button positions */
-#button-y { right: 140px; top: 100px; }
-#button-b { right: 80px; top: 160px; }
-#button-a { right: 140px; top: 220px; }
-#button-x { right: 200px; top: 160px; }
-
-.stick {
+/* D-pad styling */
+.d-pad {
   position: absolute;
+  left: 180px;
+  top: 220px;
   width: 80px;
   height: 80px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.d-pad-button {
+  border: 2px solid #fff;
+  background: none;
+}
+
+.d-pad-up { grid-area: 1 / 2; border-radius: 4px 4px 0 0; }
+.d-pad-right { grid-area: 2 / 3; border-radius: 0 4px 4px 0; }
+.d-pad-down { grid-area: 3 / 2; border-radius: 0 0 4px 4px; }
+.d-pad-left { grid-area: 2 / 1; border-radius: 4px 0 0 4px; }
+.d-pad-center { grid-area: 2 / 2; }
+
+/* Sticks */
+.stick {
+  position: absolute;
+  width: 65px;
+  height: 65px;
   border: 2px solid #fff;
   border-radius: 50%;
 }
 
 .stick-dot {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 2px solid #fff;
   border-radius: 50%;
   top: 50%;
@@ -83,32 +101,33 @@ body {
   transition: transform 0.1s;
 }
 
-/* Stick positions */
-#left-stick { left: 90px; top: 120px; }
-#right-stick { right: 140px; top: 220px; }
+#left-stick { left: 100px; top: 150px; }
+#right-stick { right: 140px; top: 230px; }
 
+/* Center buttons */
 .center-buttons {
   position: absolute;
   left: 50%;
-  top: 160px;
+  top: 150px;
   transform: translateX(-50%);
   display: flex;
-  gap: 100px;
+  gap: 60px;
 }
 
 .menu-button {
-  padding: 5px 15px;
+  padding: 3px 10px;
   border: 2px solid #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   color: #fff;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }
 
+/* Xbox button */
 .xbox-button {
   position: absolute;
   left: 50%;
-  top: 100px;
+  top: 80px;
   transform: translateX(-50%);
   width: 40px;
   height: 40px;
@@ -124,32 +143,44 @@ body {
   height: 24px;
 }
 
+/* Shoulder buttons */
 .bumper {
   position: absolute;
-  top: 30px;
-  padding: 4px 15px;
+  top: 25px;
+  padding: 3px 12px;
   border: 2px solid #fff;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 11px;
   color: #fff;
 }
 
-.bumper.left { left: 70px; }
-.bumper.right { right: 70px; }
+.bumper.left { left: 80px; }
+.bumper.right { right: 80px; }
 
+/* Triggers */
 .trigger {
   position: absolute;
   top: 0;
-  padding: 4px 15px;
+  padding: 3px 12px;
   border: 2px solid #fff;
   border-radius: 4px;
   color: #fff;
-  font-size: 12px;
+  font-size: 11px;
 }
 
-.trigger.left { left: 70px; }
-.trigger.right { right: 70px; }
+.trigger.left { left: 80px; }
+.trigger.right { right: 80px; }
 
+/* State styling */
+.pressed {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stick.pressed .stick-dot {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Debug panel */
 .debug {
   margin-top: 20px;
   display: grid;
@@ -158,14 +189,7 @@ body {
   font-family: monospace;
   font-size: 14px;
   width: 600px;
-}
-
-/* Pressed state for all interactive elements */
-.pressed {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Add pressed state for sticks */
-.stick.pressed .stick-dot {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 8px;
 }
