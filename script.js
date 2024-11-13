@@ -1,68 +1,84 @@
-const status = document.getElementById('status');
-const buttonsContainer = document.getElementById('buttons');
-const axesContainer = document.getElementById('axes');
 let gamepadIndex = null;
+const status = document.getElementById('status');
+const axesDebug = document.getElementById('axes-debug');
+const buttonsDebug = document.getElementById('buttons-debug');
 
-// Event listener for connecting the gamepad
+const BUTTON_MAPPING = {
+    0: 'button-a',
+    1: 'button-b',
+    2: 'button-x',
+    3: 'button-y',
+    4: 'left-bumper',
+    5: 'right-bumper',
+    8: 'select',
+    9: 'start',
+    16: 'home',
+    12: 'dpad-up',
+    13: 'dpad-down',
+    14: 'dpad-left',
+    15: 'dpad-right'
+};
+
 window.addEventListener("gamepadconnected", (event) => {
-  status.innerText = `Gamepad connected: ${event.gamepad.id}`;
-  gamepadIndex = event.gamepad.index;
-  createGamepadDisplay(event.gamepad);
-  requestAnimationFrame(updateGamepadStatus);
+    gamepadIndex = event.gamepad.index;
+    status.textContent = `Connected: ${event.gamepad.id}`;
+    requestAnimationFrame(updateStatus);
 });
 
-// Event listener for disconnecting the gamepad
-window.addEventListener("gamepaddisconnected", () => {
-  status.innerText = "No gamepad connected.";
-  buttonsContainer.innerHTML = '';
-  axesContainer.innerHTML = '';
-  gamepadIndex = null;
+window.addEventListener("gamepaddisconnected", (event) => {
+    if (gamepadIndex === event.gamepad.index) {
+        gamepadIndex = null;
+        status.textContent = "No gamepad connected";
+    }
 });
 
-// Create the display for buttons and axes
-function createGamepadDisplay(gamepad) {
-  buttonsContainer.innerHTML = '';
-  axesContainer.innerHTML = '';
+function updateStatus() {
+    if (gamepadIndex !== null) {
+        const gamepad = navigator.getGamepads()[gamepadIndex];
+        if (!gamepad) return;
 
-  // Create button elements
-  gamepad.buttons.forEach((_, i) => {
-    const buttonDiv = document.createElement('div');
-    buttonDiv.innerText = `Button ${i}`;
-    buttonDiv.id = `button-${i}`;
-    buttonsContainer.appendChild(buttonDiv);
-  });
+        // Update stick
+        updateStick('left-stick', gamepad.axes[0], gamepad.axes[1]);
 
-  // Create axis elements
-  gamepad.axes.forEach((_, i) => {
-    const axisDiv = document.createElement('div');
-    axisDiv.innerText = `Axis ${i}: 0.00`;
-    axisDiv.id = `axis-${i}`;
-    axesContainer.appendChild(axisDiv);
-  });
+        // Update all buttons
+        gamepad.buttons.forEach((button, index) => {
+            if (BUTTON_MAPPING[index]) {
+                updateButton(BUTTON_MAPPING[index], button.pressed);
+            }
+        });
+
+        // Update debug info
+        updateDebugDisplay(gamepad);
+
+        requestAnimationFrame(updateStatus);
+    }
 }
 
-// Poll the gamepad state and update the display
-function updateGamepadStatus() {
-  // Ensure a gamepad is connected
-  const gamepad = navigator.getGamepads()[gamepadIndex];
-  if (!gamepad) return;
+function updateStick(elementId, x, y) {
+    const dot = document.querySelector(`#${elementId} .stick-dot`);
+    const maxDistance = 15;
+    dot.style.transform = `translate(calc(-50% + ${x * maxDistance}px), calc(-50% + ${y * maxDistance}px))`;
+}
 
-  // Update button states
-  gamepad.buttons.forEach((button, i) => {
-    const buttonDiv = document.getElementById(`button-${i}`);
-    if (buttonDiv) {
-      buttonDiv.classList.toggle('pressed', button.pressed);
+function updateButton(elementId, pressed) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.classList.toggle('pressed', pressed);
     }
-  });
+}
 
-  // Update axis states
-  gamepad.axes.forEach((value, i) => {
-    const axisDiv = document.getElementById(`axis-${i}`);
-    if (axisDiv) {
-      axisDiv.innerText = `Axis ${i}: ${value.toFixed(2)}`;
-    }
-  });
+function updateDebugDisplay(gamepad) {
+    // Update axes debug info
+    let axesHtml = '<h3>Axes</h3>';
+    gamepad.axes.forEach((value, i) => {
+        axesHtml += `Axis ${i}: ${value.toFixed(4)}<br>`;
+    });
+    axesDebug.innerHTML = axesHtml;
 
-  // Continuously request the next frame for smooth updates
-  requestAnimationFrame(updateGamepadStatus);
+    // Update buttons debug info
+    let buttonsHtml = '<h3>Buttons</h3>';
+    gamepad.buttons.forEach((button, i) => {
+        buttonsHtml += `Button ${i}: ${button.pressed ? 'Pressed' : 'Released'} (${button.value.toFixed(2)})<br>`;
+    });
+    buttonsDebug.innerHTML = buttonsHtml;
 }

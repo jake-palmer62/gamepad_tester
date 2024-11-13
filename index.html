@@ -1,22 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gamepad Tester</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox Controller Layout</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Gamepad Tester</h1>
-  <div id="status">No gamepad connected.</div>
-  <div id="gamepad-display">
-    <div id="buttons">
-      <!-- Buttons will be dynamically created here -->
+    <div id="status">No gamepad connected</div>
+    <div class="controller-wrapper">
+        <div class="controller">
+            <!-- Controller Base Shape - Updated with more accurate Xbox shape -->
+            <svg class="controller-base" viewBox="0 0 600 400">
+                <!-- Base shape with grips -->
+                <path d="
+                    M 170,50 
+                    C 120,50 90,70 70,100
+                    C 50,130 45,160 45,190
+                    L 45,240
+                    C 45,280 60,320 90,350
+                    C 120,380 150,380 180,370
+                    C 210,360 230,340 240,320
+                    L 360,320
+                    C 370,340 390,360 420,370
+                    C 450,380 480,380 510,350
+                    C 540,320 555,280 555,240
+                    L 555,190
+                    C 555,160 550,130 530,100
+                    C 510,70 480,50 430,50
+                    Z
+                "/>
+                
+                <!-- Left grip indentation -->
+                <path d="
+                    M 70,160
+                    C 80,140 90,130 110,120
+                    C 90,140 80,160 80,190
+                    C 80,220 85,240 95,260
+                    C 75,240 65,210 65,190
+                    C 65,180 67,170 70,160
+                    Z
+                " fill="rgba(255,255,255,0.1)"/>
+                
+                <!-- Right grip indentation -->
+                <path d="
+                    M 530,160
+                    C 520,140 510,130 490,120
+                    C 510,140 520,160 520,190
+                    C 520,220 515,240 505,260
+                    C 525,240 535,210 535,190
+                    C 535,180 533,170 530,160
+                    Z
+                " fill="rgba(255,255,255,0.1)"/>
+            </svg>
+
+            <!-- Rest of the content remains the same -->
+            <div id="left-stick" class="stick">
+                <div class="stick-dot"></div>
+            </div>
+
+            <div id="right-stick" class="stick">
+                <div class="stick-dot"></div>
+            </div>
+
+            <div id="button-y" class="button">Y</div>
+            <div id="button-b" class="button">B</div>
+            <div id="button-a" class="button">A</div>
+            <div id="button-x" class="button">X</div>
+
+            <div class="center-buttons">
+                <div id="button-back" class="menu-button">
+                    <span>Back</span>
+                </div>
+                <div id="button-home" class="menu-button xbox-button">
+                    <svg viewBox="0 0 24 24" class="xbox-logo">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 2 L12 22" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 12 L22 12" stroke="currentColor" stroke-width="2"/>
+                        <path d="M17 7 A5 5 0 0 0 12 12" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div id="button-start" class="menu-button">
+                    <span>Start</span>
+                </div>
+            </div>
+
+            <div id="left-bumper" class="bumper left">LB</div>
+            <div id="right-bumper" class="bumper right">RB</div>
+
+            <div id="left-trigger" class="trigger left">
+                <div class="trigger-value"></div>
+                <span>LT</span>
+            </div>
+            <div id="right-trigger" class="trigger right">
+                <div class="trigger-value"></div>
+                <span>RT</span>
+            </div>
+        </div>
     </div>
-    <div id="axes">
-      <!-- Axes values will be displayed here -->
+
+    <div class="debug">
+        <div id="axes-debug">
+            <h3>Axes</h3>
+        </div>
+        <div id="buttons-debug">
+            <h3>Buttons</h3>
+        </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
