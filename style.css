@@ -72,8 +72,8 @@ body {
   border: 2px solid #fff;
   background: none;
   transition: all 0.1s;
-  width: 30px;
-  height: 30px;
+  width: 26px;  /* Slightly reduced from 30px */
+  height: 26px; /* Slightly reduced from 30px */
 }
 
 .d-pad-button.up {
@@ -103,6 +103,13 @@ body {
   transform: translateY(-50%);
   border-radius: 4px 0 0 4px;
 }
+
+/* Add space between buttons */
+.d-pad-button.up { margin-top: 2px; }
+.d-pad-button.right { margin-right: 2px; }
+.d-pad-button.down { margin-bottom: 2px; }
+.d-pad-button.left { margin-left: 2px; }
+
 /* Sticks */
 .stick {
   position: absolute;
