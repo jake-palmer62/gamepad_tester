@@ -38,7 +38,7 @@ body {
   fill: none;
 }
 
-/* Face buttons - moved further right */
+/* Face buttons */
 .button {
   position: absolute;
   width: 32px;
@@ -57,29 +57,52 @@ body {
 #button-b { right: 80px; top: 150px; }
 #button-a { right: 120px; top: 190px; }
 #button-x { right: 160px; top: 150px; }
-
 /* D-pad styling */
 .d-pad {
   position: absolute;
-  left: 180px;
+  left: 160px;
   top: 220px;
-  width: 80px;
-  height: 80px;
-  display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  width: 90px;
+  height: 90px;
+  position: relative;
 }
 
 .d-pad-button {
+  position: absolute;
   border: 2px solid #fff;
   background: none;
+  transition: all 0.1s;
+  width: 30px;
+  height: 30px;
 }
 
-.d-pad-up { grid-area: 1 / 2; border-radius: 4px 4px 0 0; }
-.d-pad-right { grid-area: 2 / 3; border-radius: 0 4px 4px 0; }
-.d-pad-down { grid-area: 3 / 2; border-radius: 0 0 4px 4px; }
-.d-pad-left { grid-area: 2 / 1; border-radius: 4px 0 0 4px; }
-.d-pad-center { grid-area: 2 / 2; }
+.d-pad-button.up {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px 4px 0 0;
+}
 
+.d-pad-button.right {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0 4px 4px 0;
+}
+
+.d-pad-button.down {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 4px 4px;
+}
+
+.d-pad-button.left {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px 0 0 4px;
+}
 /* Sticks */
 .stick {
   position: absolute;

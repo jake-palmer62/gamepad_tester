@@ -16,6 +16,10 @@ const BUTTON_MAPPING = {
     9: 'button-start',
     10: 'left-stick',  // L3
     11: 'right-stick', // R3
+    12: 'd-pad-up',
+    13: 'd-pad-down',
+    14: 'd-pad-left',
+    15: 'd-pad-right',
     16: 'button-home'
 };
 
