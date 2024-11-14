@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Xbox Controller Layout</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="status">No gamepad connected</div>
     <div class="controller-wrapper">
-        <div class="controller">
-            <!-- Controller Base Shape -->
-            <svg class="controller-base" viewBox="0 0 600 400">
-                <path d="
+      <div class="controller">
+        <svg class="controller-base" viewBox="0 0 600 400">
+          <path
+            d="
                     M 170,50 
                     C 120,50 90,70 70,100
                     C 50,130 45,160 45,190
@@ -28,68 +28,67 @@
                     C 555,160 550,130 530,100
                     C 510,70 480,50 430,50
                     Z
-                "/>
-            </svg>
+                "
+          />
+        </svg>
 
-            <!-- D-pad -->
-            <!-- Replace the D-pad section in the HTML -->
-            <div id="d-pad" class="d-pad">
-              <div id="d-pad-up" class="d-pad-button up"></div>
-              <div id="d-pad-right" class="d-pad-button right"></div>
-              <div id="d-pad-down" class="d-pad-button down"></div>
-              <div id="d-pad-left" class="d-pad-button left"></div>
-            </div>
-
-            <!-- Left stick -->
-            <div id="left-stick" class="stick">
-                <div class="stick-dot"></div>
-            </div>
-
-            <!-- Right stick -->
-            <div id="right-stick" class="stick">
-                <div class="stick-dot"></div>
-            </div>
-
-            <!-- Face buttons -->
-            <div id="button-y" class="button">Y</div>
-            <div id="button-b" class="button">B</div>
-            <div id="button-a" class="button">A</div>
-            <div id="button-x" class="button">X</div>
-
-            <!-- Center buttons -->
-            <div class="center-buttons">
-                <div id="button-back" class="menu-button">Back</div>
-                <div id="button-start" class="menu-button">Start</div>
-            </div>
-
-            <!-- Xbox button -->
-            <div id="button-home" class="xbox-button">
-                <svg viewBox="0 0 24 24" class="xbox-logo">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <path d="M12 2 L12 22" stroke="currentColor" stroke-width="2"/>
-                    <path d="M2 12 L22 12" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </div>
-
-            <!-- Bumpers -->
-            <div id="left-bumper" class="bumper left">LB</div>
-            <div id="right-bumper" class="bumper right">RB</div>
-
-            <!-- Triggers -->
-            <div id="left-trigger" class="trigger left">LT</div>
-            <div id="right-trigger" class="trigger right">RT</div>
+        <div id="d-pad" class="d-pad">
+          <div id="d-pad-up" class="d-pad-button up"></div>
+          <div id="d-pad-right" class="d-pad-button right"></div>
+          <div id="d-pad-down" class="d-pad-button down"></div>
+          <div id="d-pad-left" class="d-pad-button left"></div>
         </div>
+
+        <div id="left-stick" class="stick">
+          <div class="stick-dot"></div>
+        </div>
+
+        <div id="right-stick" class="stick">
+          <div class="stick-dot"></div>
+        </div>
+
+        <div id="button-y" class="button">Y</div>
+        <div id="button-b" class="button">B</div>
+        <div id="button-a" class="button">A</div>
+        <div id="button-x" class="button">X</div>
+
+        <div class="center-buttons">
+          <div id="button-back" class="menu-button">Back</div>
+          <div id="button-start" class="menu-button">Start</div>
+        </div>
+
+        <div id="button-home" class="xbox-button">
+          <svg viewBox="0 0 24 24" class="xbox-logo">
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path d="M12 2 L12 22" stroke="currentColor" stroke-width="2" />
+            <path d="M2 12 L22 12" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </div>
+
+        <div id="left-bumper" class="bumper left">LB</div>
+        <div id="right-bumper" class="bumper right">RB</div>
+
+        <div id="left-trigger" class="trigger left">LT</div>
+        <div id="right-trigger" class="trigger right">RT</div>
+      </div>
     </div>
 
     <div class="debug">
-        <div id="axes-debug">
-            <h3>Axes</h3>
-        </div>
-        <div id="buttons-debug">
-            <h3>Buttons</h3>
-        </div>
+      <div id="axes-debug">
+        <h3>Axes</h3>
+      </div>
+      <div id="buttons-debug">
+        <h3>Buttons</h3>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

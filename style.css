@@ -38,7 +38,6 @@ body {
   fill: none;
 }
 
-/* Face buttons */
 .button {
   position: absolute;
   width: 32px;
@@ -53,11 +52,23 @@ body {
   transition: all 0.1s;
 }
 
-#button-y { right: 120px; top: 110px; }
-#button-b { right: 80px; top: 150px; }
-#button-a { right: 120px; top: 190px; }
-#button-x { right: 160px; top: 150px; }
-/* D-pad styling */
+#button-y {
+  right: 120px;
+  top: 110px;
+}
+#button-b {
+  right: 80px;
+  top: 150px;
+}
+#button-a {
+  right: 120px;
+  top: 190px;
+}
+#button-x {
+  right: 160px;
+  top: 150px;
+}
+
 .d-pad {
   position: absolute;
   left: 160px;
@@ -72,8 +83,8 @@ body {
   border: 2px solid #fff;
   background: none;
   transition: all 0.1s;
-  width: 26px;  /* Slightly reduced from 30px */
-  height: 26px; /* Slightly reduced from 30px */
+  width: 26px;
+  height: 26px;
 }
 
 .d-pad-button.up {
@@ -105,10 +116,18 @@ body {
 }
 
 /* Add space between buttons */
-.d-pad-button.up { margin-top: 2px; }
-.d-pad-button.right { margin-right: 2px; }
-.d-pad-button.down { margin-bottom: 2px; }
-.d-pad-button.left { margin-left: 2px; }
+.d-pad-button.up {
+  margin-top: 2px;
+}
+.d-pad-button.right {
+  margin-right: 2px;
+}
+.d-pad-button.down {
+  margin-bottom: 2px;
+}
+.d-pad-button.left {
+  margin-left: 2px;
+}
 
 /* Sticks */
 .stick {
@@ -131,8 +150,14 @@ body {
   transition: transform 0.1s;
 }
 
-#left-stick { left: 100px; top: 150px; }
-#right-stick { right: 140px; top: 230px; }
+#left-stick {
+  left: 100px;
+  top: 150px;
+}
+#right-stick {
+  right: 140px;
+  top: 230px;
+}
 
 /* Center buttons */
 .center-buttons {
@@ -153,7 +178,6 @@ body {
   text-align: center;
 }
 
-/* Xbox button */
 .xbox-button {
   position: absolute;
   left: 50%;
@@ -173,7 +197,6 @@ body {
   height: 24px;
 }
 
-/* Shoulder buttons */
 .bumper {
   position: absolute;
   top: 25px;
@@ -184,10 +207,13 @@ body {
   color: #fff;
 }
 
-.bumper.left { left: 80px; }
-.bumper.right { right: 80px; }
+.bumper.left {
+  left: 80px;
+}
+.bumper.right {
+  right: 80px;
+}
 
-/* Triggers */
 .trigger {
   position: absolute;
   top: 0;
@@ -198,10 +224,13 @@ body {
   font-size: 11px;
 }
 
-.trigger.left { left: 80px; }
-.trigger.right { right: 80px; }
+.trigger.left {
+  left: 80px;
+}
+.trigger.right {
+  right: 80px;
+}
 
-/* State styling */
 .pressed {
   background: rgba(255, 255, 255, 0.3);
 }
@@ -210,7 +239,6 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Debug panel */
 .debug {
   margin-top: 20px;
   display: grid;
