@@ -9,9 +9,48 @@
     <h1>{{ guide_title }}</h1>
 </section>
 
-<article class="guide-item">
-    {% block guide_content %}
-    <!-- Individual guide content will go here -->
-    {% endblock %}
+<article class="guide-content">
+    <section class="guide-section">
+        <h2>Overview</h2>
+        {{ overview | safe }}
+    </section>
+
+    <section class="guide-section">
+        <h2>Required Tools</h2>
+        <ul class="tool-list">
+            {% for tool in tools %}
+            <li>{{ tool }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="guide-section">
+        <h2>Steps</h2>
+        <ol class="steps-list">
+            {% for step in steps %}
+            <li>
+                <h3>{{ step.title }}</h3>
+                {{ step.content | safe }}
+                {% if step.warning %}
+                <div class="warning">⚠️ {{ step.warning }}</div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+    </section>
+
+    {% if troubleshooting %}
+    <section class="guide-section">
+        <h2>Troubleshooting</h2>
+        <ul class="troubleshooting-list">
+            {% for item in troubleshooting %}
+            <li>
+                <h4>{{ item.problem }}</h4>
+                <p>{{ item.solution }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
 </article>
 {% endblock %}
