@@ -127,3 +127,40 @@ function updateDebugDisplay(gamepad) {
   });
   buttonsDebug.innerHTML = buttonsHtml;
 }
+
+// Navigation active state
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navTabs = document.querySelectorAll('.nav-tab');
+    
+    navTabs.forEach(tab => {
+        const tabHref = tab.getAttribute('href');
+        if (tabHref === currentPage) {
+            tab.classList.add('active');
+        }
+    });
+});
+
+// Dropdown functionality for mobile (if needed)
+function initMobileNav() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.nav-tab');
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+    });
+}
+
+// Initialize mobile nav if screen width is below threshold
+if (window.innerWidth <= 768) {
+    initMobileNav();
+}
+
+// Window resize handler
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 768) {
+        initMobileNav();
+    }
+});

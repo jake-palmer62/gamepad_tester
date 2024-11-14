@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Repair Hub - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav-container">
+    <a href="index.html" class="logo">Console Repair Hub</a>
+    <div class="nav-tabs">
+        <a href="index.html" class="nav-tab">Home</a>
+        <a href="gamepad-tester.html" class="nav-tab">Gamepad Tester</a>
+        
+        <div class="dropdown nintendo">
+            <a href="#nintendo" class="nav-tab">Nintendo</a>
+            <div class="dropdown-content">
+                <div class="dropdown-header">Switch</div>
+                <a href="guides/switch-joycon.html" class="dropdown-item">Joy-Con Drift Fix</a>
+                <a href="guides/switch-battery.html" class="dropdown-item">Battery Replacement</a>
+                <a href="guides/switch-screen.html" class="dropdown-item">Screen Replacement</a>
+                
+                <div class="dropdown-header">3DS</div>
+                <a href="guides/3ds-screen.html" class="dropdown-item">Top Screen Repair</a>
+                <a href="guides/3ds-circle.html" class="dropdown-item">Circle Pad Fix</a>
+            </div>
+        </div>
+
+        <div class="dropdown xbox">
+            <a href="#xbox" class="nav-tab">Xbox</a>
+            <div class="dropdown-content">
+                <div class="dropdown-header">Series X/S</div>
+                <a href="guides/series-fan.html" class="dropdown-item">Fan Replacement</a>
+                <a href="guides/series-ssd.html" class="dropdown-item">SSD Upgrade</a>
+                
+                <div class="dropdown-header">Xbox One</div>
+                <a href="guides/xbone-hdmi.html" class="dropdown-item">HDMI Port Repair</a>
+                <a href="guides/xbone-hdd.html" class="dropdown-item">HDD Replacement</a>
+            </div>
+        </div>
+
+        <div class="dropdown playstation">
+            <a href="#playstation" class="nav-tab">PlayStation</a>
+            <div class="dropdown-content">
+                <div class="dropdown-header">PS5</div>
+                <a href="guides/ps5-ssd.html" class="dropdown-item">SSD Expansion</a>
+                <a href="guides/ps5-fan.html" class="dropdown-item">Fan Cleaning</a>
+                
+                <div class="dropdown-header">PS4</div>
+                <a href="guides/ps4-hdmi.html" class="dropdown-item">HDMI Port Fix</a>
+                <a href="guides/ps4-hdd.html" class="dropdown-item">HDD Upgrade</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>Welcome to Console Repair Hub</h1>
+            <p>Your go-to resource for game console repair guides and tools</p>
+        </section>
+
+        <div class="featured-cards">
+            <div class="card">
+                <img src="/api/placeholder/400/200" alt="Gamepad Tester">
+                <div class="card-content">
+                    <h2>Gamepad Tester</h2>
+                    <p>Test your controller's buttons, sticks, and triggers</p>
+                    <a href="gamepad-tester.html" class="button">Try it out</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="/api/placeholder/400/200" alt="Popular Fixes">
+                <div class="card-content">
+                    <h2>Popular Fixes</h2>
+                    <p>Common issues and their solutions</p>
+                    <a href="guides/switch-joycon.html" class="button">View Guides</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="/api/placeholder/400/200" alt="Tool Guide">
+                <div class="card-content">
+                    <h2>Tool Guide</h2>
+                    <p>Essential tools for console repair</p>
+                    <a href="guides/tools.html" class="button">Learn More</a>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="recent-guides">
+            <h2>Recent Repair Guides</h2>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <span class="console-tag nintendo">Nintendo Switch</span>
+                    <h3>Joy-Con Drift Repair</h3>
+                    <p>Fix stick drift issues in Nintendo Switch controllers</p>
+                </div>
+                <div class="guide-item">
+                    <span class="console-tag xbox">Xbox Series X</span>
+                    <h3>SSD Upgrade Guide</h3>
+                    <p>Expand your storage with a new SSD</p>
+                </div>
+                <div class="guide-item">
+                    <span class="console-tag playstation">PS5</span>
+                    <h3>Fan Cleaning</h3>
+                    <p>Maintain your PS5's cooling system</p>
+                </div>
+                <div class="guide-item">
+                    <span class="console-tag xbox">Xbox One</span>
+                    <h3>HDMI Port Replacement</h3>
+                    <p>Fix your display connection issues</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
