@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Console Repair Hub{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <nav class="nav-container">
@@ -20,13 +19,13 @@
                 <a href="#nintendo" class="nav-tab">Nintendo</a>
                 <div class="dropdown-content">
                     <div class="dropdown-header">Switch</div>
-                    <a href="{{ url_for('switch_joycon') }}" class="dropdown-item">Joy-Con Drift Fix</a>
-                    <a href="{{ url_for('switch_battery') }}" class="dropdown-item">Battery Replacement</a>
-                    <a href="{{ url_for('switch_screen') }}" class="dropdown-item">Screen Replacement</a>
+                    <a href="{{ url_for('nintendo.switch_joycon') }}" class="dropdown-item">Joy-Con Drift Fix</a>
+                    <a href="{{ url_for('nintendo.switch_battery') }}" class="dropdown-item">Battery Replacement</a>
+                    <a href="{{ url_for('nintendo.switch_screen') }}" class="dropdown-item">Screen Replacement</a>
                     
                     <div class="dropdown-header">3DS</div>
-                    <a href="{{ url_for('ds3_screen') }}" class="dropdown-item">Top Screen Repair</a>
-                    <a href="{{ url_for('ds3_circle') }}" class="dropdown-item">Circle Pad Fix</a>
+                    <a href="{{ url_for('nintendo.ds3_screen') }}" class="dropdown-item">Top Screen Repair</a>
+                    <a href="{{ url_for('nintendo.ds3_circle') }}" class="dropdown-item">Circle Pad Fix</a>
                 </div>
             </div>
             
@@ -34,12 +33,12 @@
                 <a href="#xbox" class="nav-tab">Xbox</a>
                 <div class="dropdown-content">
                     <div class="dropdown-header">Series X/S</div>
-                    <a href="{{ url_for('series_fan') }}" class="dropdown-item">Fan Replacement</a>
-                    <a href="{{ url_for('series_ssd') }}" class="dropdown-item">SSD Upgrade</a>
+                    <a href="{{ url_for('xbox.series_fan') }}" class="dropdown-item">Fan Replacement</a>
+                    <a href="{{ url_for('xbox.series_ssd') }}" class="dropdown-item">SSD Upgrade</a>
                     
                     <div class="dropdown-header">Xbox One</div>
-                    <a href="{{ url_for('xbone_hdmi') }}" class="dropdown-item">HDMI Port Repair</a>
-                    <a href="{{ url_for('xbone_hdd') }}" class="dropdown-item">HDD Replacement</a>
+                    <a href="{{ url_for('xbox.xbone_hdmi') }}" class="dropdown-item">HDMI Port Repair</a>
+                    <a href="{{ url_for('xbox.xbone_hdd') }}" class="dropdown-item">HDD Replacement</a>
                 </div>
             </div>
             
@@ -47,12 +46,12 @@
                 <a href="#playstation" class="nav-tab">PlayStation</a>
                 <div class="dropdown-content">
                     <div class="dropdown-header">PS5</div>
-                    <a href="{{ url_for('ps5_ssd') }}" class="dropdown-item">SSD Expansion</a>
-                    <a href="{{ url_for('ps5_fan') }}" class="dropdown-item">Fan Cleaning</a>
+                    <a href="{{ url_for('playstation.ps5_ssd') }}" class="dropdown-item">SSD Expansion</a>
+                    <a href="{{ url_for('playstation.ps5_fan') }}" class="dropdown-item">Fan Cleaning</a>
                     
                     <div class="dropdown-header">PS4</div>
-                    <a href="{{ url_for('ps4_hdmi') }}" class="dropdown-item">HDMI Port Fix</a>
-                    <a href="{{ url_for('ps4_hdd') }}" class="dropdown-item">HDD Upgrade</a>
+                    <a href="{{ url_for('playstation.ps4_hdmi') }}" class="dropdown-item">HDMI Port Fix</a>
+                    <a href="{{ url_for('playstation.ps4_hdd') }}" class="dropdown-item">HDD Upgrade</a>
                 </div>
             </div>
         </div>
@@ -63,6 +62,5 @@
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    {% block extra_js %}{% endblock %}
 </body>
 </html>
