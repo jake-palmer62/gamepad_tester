@@ -1,0 +1,51 @@
+{# templates/home.html #}
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Welcome to Console Repair Hub</h1>
+    <p>Your go-to resource for game console repair guides and tools</p>
+</section>
+
+<section class="featured-cards">
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/gamepad-tester.jpg') }}" alt="Gamepad Tester">
+        <div class="card-content">
+            <h2>Gamepad Tester</h2>
+            <p>Test your controller's buttons, sticks, and triggers</p>
+            <a href="{{ url_for('gamepad_tester') }}" class="button">Try it out</a>
+        </div>
+    </div>
+    
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/popular-fixes.jpg') }}" alt="Popular Fixes">
+        <div class="card-content">
+            <h2>Popular Fixes</h2>
+            <p>Common issues and their solutions</p>
+            <a href="{{ url_for('switch_joycon') }}" class="button">View Guides</a>
+        </div>
+    </div>
+    
+    <div class="card">
+        <img src="{{ url_for('static', filename='images/tool-guide.jpg') }}" alt="Tool Guide">
+        <div class="card-content">
+            <h2>Tool Guide</h2>
+            <p>Essential tools for console repair</p>
+            <a href="#" class="button">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="recent-guides">
+    <h2>Recent Repair Guides</h2>
+    <div class="guide-grid">
+        {% for guide in featured_guides %}
+        <div class="guide-item">
+            <span class="console-tag {{ guide.console_tag }}">{{ guide.console }}</span>
+            <h3>{{ guide.title }}</h3>
+            <p>{{ guide.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

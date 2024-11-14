@@ -1,0 +1,17 @@
+{# templates/guides/guide.html #}
+{% extends "base.html" %}
+
+{% block title %}{{ guide_title }} - Console Repair Hub{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <span class="console-tag {{ console_tag }}">{{ console_name }}</span>
+    <h1>{{ guide_title }}</h1>
+</section>
+
+<article class="guide-item">
+    {% block guide_content %}
+    <!-- Individual guide content will go here -->
+    {% endblock %}
+</article>
+{% endblock %}
