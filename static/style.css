@@ -275,6 +275,15 @@ body {
   font-size: 0.95rem;
 }
 
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  /* Add row gap */
+  row-gap: 5rem;
+}
+
+
 /* Gamepad Tester Specific Styles */
 #status {
   margin: 1rem 0;
