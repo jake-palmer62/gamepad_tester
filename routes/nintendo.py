@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 nintendo_bp = Blueprint('nintendo', __name__)
 
@@ -285,3 +285,39 @@ def ds3_circle():
         ]
     }
     return render_template('guides/guide.html', **content)
+
+@nintendo_bp.route('/guides/switch-serial.html', methods=['GET', 'POST'])
+def switch_serial():
+    result = None
+    serial = None
+    
+    if request.method == 'POST':
+        serial = request.form.get('serial', '').strip()
+        if serial:
+            # XAW1: Original Switch model
+            if serial.startswith('XAW1'):
+                number = int(serial[6:8])
+                if number < 10:
+                    result = "Unpatched - This console can be modded"
+                elif number < 40:
+                    result = "Possibly patched - Would need additional verification"
+                else:
+                    result = "Patched - This console cannot be modded"
+            # XAW4 and newer are always patched
+            elif serial.startswith(('XAW4', 'XAW7', 'XAJ1', 'XAJ4', 'XAJ7')):
+                result = "Patched - This console cannot be modded"
+            else:
+                result = "Unknown serial format - Please verify the serial number"
+
+    content = {
+        'console_tag': "nintendo",
+        'console_name': "Nintendo Switch",
+        'guide_title': "Serial Number Checker",
+        'overview': '''
+            <p>Check if your Nintendo Switch is patched or unpatched based on the serial number.
+            This can help determine your console's compatibility with certain modifications.</p>
+        ''',
+        'serial': serial,
+        'result': result
+    }
+    return render_template('guides/switch-serial.html', **content)

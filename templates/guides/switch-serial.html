@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block title %}Switch Serial Checker - Console
+Repair Hub{% endblock %} {% block content %}
+<section class="hero">
+  <span class="console-tag {{ console_tag }}">{{ console_name }}</span>
+  <h1>{{ guide_title }}</h1>
+</section>
+
+<article class="guide-content">
+  <section class="guide-section">
+    {{ overview | safe }}
+
+    <div class="serial-checker">
+      <h2>Serial Number Location</h2>
+      <img
+        src="/api/placeholder/400/200"
+        alt="Serial number location"
+        class="serial-image"
+      />
+      <p>
+        The serial number can be found on the bottom of your Nintendo Switch
+        console or on the original packaging.
+      </p>
+
+      <form method="POST" class="serial-form">
+        <div class="form-group">
+          <label for="serial">Enter your Switch serial number:</label>
+          <input
+            type="text"
+            id="serial"
+            name="serial"
+            value="{{ serial if serial }}"
+            placeholder="e.g., XAW10012345678"
+            pattern="[A-Za-z0-9]{10,16}"
+            required
+            class="serial-input"
+          />
+        </div>
+        <button type="submit" class="check-button">Check Serial</button>
+      </form>
+
+      {% if result %}
+      <div
+        class="result {% if 'Unpatched' in result %}unpatched{% elif 'Patched' in result %}patched{% else %}unknown{% endif %}"
+      >
+        <h3>Result:</h3>
+        <p>{{ result }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <h2>Understanding the Results</h2>
+    <ul class="results-guide">
+      <li><strong>Unpatched:</strong> Original hardware revision</li>
+      <li>
+        <strong>Possibly patched:</strong> Manufacturing period where both
+        patched and unpatched units exist
+      </li>
+      <li><strong>Patched:</strong> Updated hardware revision</li>
+    </ul>
+  </section>
+</article>
+{% endblock %}
