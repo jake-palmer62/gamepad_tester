@@ -1,6 +1,153 @@
 from flask import Blueprint, render_template, request
 
 nintendo_bp = Blueprint('nintendo', __name__)
+################################################ Nintendo Switch ################################################
+@nintendo_bp.route('/guides/switch_disassembly.html')
+def switch_disassembly():
+    guide_content = {
+        'console_tag': 'nintendo',
+        'console_name': 'Nintendo Switch',
+        'guide_title': 'Nintendo Switch Console Disassembly',
+        'overview': '''
+            <p>This guide will walk you through safely disassembling your Nintendo Switch console. 
+            Whether you need to clean the internal components, replace the cooling fan, or replace parts such as the game card slot.
+            </p>
+        ''',
+        'tools': [
+            'Y00 tri-wing screwdriver',
+            'Phillips head screwdriver #00',
+            'Plastic pry tool',
+            'Spudger or plastic opening tool',
+            'Tweezers',
+            'Small container for screws',
+            'Isopropyl Alcohol (99%)',
+            'Q-Tips',
+            'Thermal Paste (for reassemmbly)'
+        ],
+        'steps': [
+            {
+                'title': 'Prepare Your Workspace',
+                'content': '''
+                    <p>Power off your Switch completely by holding the power button for 12 seconds.
+                    Remove both Joy-Con controllers from the sides of the console. Remove any game cards and sd cards if they are inserted.
+                    Set up your workspace with a clean, well-lit, static-free surface. Lay out a soft mat or cloth to protect the screen.</p>
+                '''
+            },
+            {
+                 'title': 'Remove Corner Screws',
+                'content': '''
+                    <p>Using your Y00 tri-wing screwdriver, remove the four tri-wing screws located in each corner
+                    of the back cover. Place these screws your container and keep them separate from the other screws.</p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
+                '''                
+            },
+            {
+                'title': 'Remove Kickstand Screw',
+                'content': '''
+                    <p>Open the kickstand on the back of the console. Inside, you'll find a PH00 screw.
+                    Remove this screws using your Phillips screwdriver and store them separately.</p>
+                '''
+            },
+            {
+                'title': 'Remove Additional Screws',
+                'content': '''
+                    <p>Locate and remove the remaining PH00 screws: one on the top of the console,
+                    two on the bottom, and one in the middle of each Joy-Con rail.</p>
+                ''',
+                'warning': "In order to prevent these screws from stripping, apply firm downward force."
+            },
+            {
+                'title': 'Remove Back Cover',
+                'content': '''
+                    <p>Once all screws are removed, carefully lift the back cover away from the console.
+                    The cover should come off without much resistance. Set it aside in a safe place.</p>
+                ''',
+                'warning': 'The back cover has plastic tabs that can break if forced. If you feel resistance, check for missed screws.'
+            },
+            {
+                'title': 'Remove the Heat Shield',
+                'content': '''
+                    <p>Removing the back cover will reveal the aluminium heat shield covering the motherboard. There are seven PH00 screws holding it and the sd card in place.
+                    Firstly, remove the screw for the SD card and then pull directly up on it to disconnect it from the console. Then, remove the remaining six screws from the heat shield.
+                    Finally, pull the heat sheild up and away from the switch.</p>
+                ''',
+                'warning': 'A small amount of resistance is to be expected when removing this, since there is viscous thermal paste in between the sheild and the copper heat sink underneath.'
+            },
+            {
+                'title': 'Disconnect the Battery',
+                'content': '''
+                    <p>Using a spudger and not tweezers, lift the battery connector directly up and away from the console.</p>
+                ''',
+                'warning': 'Battery disconnection is a crucial safety step before proceeding with further disassembly. Do not disconnect any ribbon cables before completing this step.'
+            },
+            {
+                'title': 'Remove the Copper Heatsink',
+                'content': '''
+                    <p>There are three PH00 screws that hold the copper heatsink in place, remove these and then either break the two bits of foam by the fan, or heat it up, and gently pry it up to prevent it from tearing. 
+                    Then, remove the thermal paste from the heatsink and from the APU using a Q-Tip and Isopropyl alcohol.</p>
+                '''
+            },
+            {
+                'title': 'Removing the Game Card Slot',
+                'content': '''
+                    <p>The game card slot can be removed from the console. Firstly, take out the three PH00 silver screws holding the plastic tab for the audio jack and 
+                    the one holding the game card slot in place. Make sure the ribbon cable for the touch screen is also removed. Pry up on the connector for the game card slot for the motherboard, and set it aside. 
+                    </p>
+                '''
+            },
+            {
+                'title': 'Disconnecting Display and Other Cables',
+                'content': '''
+                    <p>You'll need to disconnect several ribbon cables: the large display cable near the top, 
+                    touch screen cable beside it, volume and power button cables on the right, game card reader 
+                    cable on the left, the Wi-Fi and Bluetooth antenna cables,both joycon rail ribbon cables and speaker cables on both sides. For each cable, locate the brown or black 
+                    locking flip and use your spudger to gently lift it up 90 degrees. The cable should loosen 
+                    automatically, allowing you to carefully pull it straight out. Make note of cable routing and 
+                    orientation. The fan cable is right next to the power button cable, and the Wi-Fi cables are close to that, as shown in the photo. </p>
+                ''',
+                'warning': 'Ribbon cables are extremely fragile. Never force them or pull at an angle. If a cable feels stuck, double-check that the locking flip is fully released.'
+            },
+            {
+                'title': 'Removing the Fan',
+                'content': '''
+                    <p>There are three black PH00 screws which hold the fan in place. Once these and the ribbon cable for it have been disconnected, the fan can be taken out of the console.
+                    </p>
+                '''
+            },
+            {
+                'title': 'Removing the Motherboard',
+                'content': '''
+                    <p>There are four black PH00 cables which secure the motherboard into the console, and two silver ones by the charging port. Remove all of these from the console, and the motherboard can now be removed from the housing. 
+                    </p>
+                '''
+            },
+            
+        ],
+        'troubleshooting': [
+            {
+                'problem': 'Screws strip easily',
+                'solution': "Ensure you're using the correct size screwdriver and apply firm downward pressure while turning."
+            },
+            {
+                'problem': "Screen doesn't work after reassembly",
+                'solution': 'Double check that the display ribbon cable is fully inserted and the connector lock is engaged.'
+            },
+            {
+                'problem': "Console won't power on after reassembly",
+                'solution': 'Verify the battery connector is properly seated and all power button cables are connected.'
+            },
+            {
+                'problem': 'Missing screws during reassembly',
+                'solution': 'Different screw lengths are used in different locations. If unsure of screw placement, consult online repair guides for screw maps.'
+            }
+        ]
+    }
+    return render_template('guides/guide.html', **guide_content)
+
+
+
 
 @nintendo_bp.route('/guides/switch-joycon.html')
 def switch_joycon():

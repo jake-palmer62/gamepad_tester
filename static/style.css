@@ -708,3 +708,19 @@ body {
   margin: 1rem 0;
   border-radius: 4px;
 }
+
+.guide-image {
+  margin: 20px 0;
+  text-align: center;
+  max-width: 500px; /* Added max-width container */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guide-image img {
+  width: 100%;
+  max-width: 500px; /* Added max-width to image - Aspect ratio for all images is 3:2 */
+  height: auto;
+  border: 1px solid #333;
+  border-radius: 4px;
+}

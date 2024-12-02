@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block title %}Switch Serial Checker - Console
-Repair Hub{% endblock %} {% block content %}
+{% extends "base.html" %} {% block title %}Switch Serial Checker {% endblock %} {% block content %}
 <section class="hero">
   <span class="console-tag {{ console_tag }}">{{ console_name }}</span>
   <h1>{{ guide_title }}</h1>
@@ -18,7 +17,7 @@ Repair Hub{% endblock %} {% block content %}
       />
       <p>
         The serial number can be found on the bottom of your Nintendo Switch
-        console or on the original packaging.
+        console to the left of the charging port or on the original packaging. It can also be checked in system settings. Please note that this only applies to Nintendo Switch consoles that can be docked, and excludes the OLED and Lite versions.
       </p>
 
       <form method="POST" class="serial-form">
@@ -52,12 +51,12 @@ Repair Hub{% endblock %} {% block content %}
   <section class="guide-section">
     <h2>Understanding the Results</h2>
     <ul class="results-guide">
-      <li><strong>Unpatched:</strong> Original hardware revision</li>
+      <li><strong>Unpatched:</strong> Original hardware revision</li> 
       <li>
         <strong>Possibly patched:</strong> Manufacturing period where both
-        patched and unpatched units exist
+        patched and unpatched units exist - unit may be unpatched
       </li>
-      <li><strong>Patched:</strong> Updated hardware revision</li>
+      <li><strong>Patched:</strong> Updated hardware revision, console is no longer vulnerable to the RCM bug!</li>
     </ul>
   </section>
 </article>
