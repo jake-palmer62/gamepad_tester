@@ -48,6 +48,9 @@ def switch_disassembly():
                 'content': '''
                     <p>Open the kickstand on the back of the console. Inside, you'll find a PH00 screw.
                     Remove this screws using your Phillips screwdriver and store them separately.</p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step3.jpg" alt="Corner screw locations">
+                    </div>
                 '''
             },
             {
@@ -55,6 +58,15 @@ def switch_disassembly():
                 'content': '''
                     <p>Locate and remove the remaining PH00 screws: one on the top of the console,
                     two on the bottom, and one in the middle of each Joy-Con rail.</p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step4-1.jpg" alt="Corner screw locations">
+                    </div>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step4-2.jpg" alt="Corner screw locations">
+                    </div>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step4-3.jpg" alt="Corner screw locations">
+                    </div>
                 ''',
                 'warning': "In order to prevent these screws from stripping, apply firm downward force."
             },
@@ -72,6 +84,9 @@ def switch_disassembly():
                     <p>Removing the back cover will reveal the aluminium heat shield covering the motherboard. There are seven PH00 screws holding it and the sd card in place.
                     Firstly, remove the screw for the SD card and then pull directly up on it to disconnect it from the console. Then, remove the remaining six screws from the heat shield.
                     Finally, pull the heat sheild up and away from the switch.</p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
                 ''',
                 'warning': 'A small amount of resistance is to be expected when removing this, since there is viscous thermal paste in between the sheild and the copper heat sink underneath.'
             },
@@ -79,6 +94,9 @@ def switch_disassembly():
                 'title': 'Disconnect the Battery',
                 'content': '''
                     <p>Using a spudger and not tweezers, lift the battery connector directly up and away from the console.</p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
                 ''',
                 'warning': 'Battery disconnection is a crucial safety step before proceeding with further disassembly. Do not disconnect any ribbon cables before completing this step.'
             },
@@ -87,6 +105,9 @@ def switch_disassembly():
                 'content': '''
                     <p>There are three PH00 screws that hold the copper heatsink in place, remove these and then either break the two bits of foam by the fan, or heat it up, and gently pry it up to prevent it from tearing. 
                     Then, remove the thermal paste from the heatsink and from the APU using a Q-Tip and Isopropyl alcohol.</p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
                 '''
             },
             {
@@ -95,6 +116,9 @@ def switch_disassembly():
                     <p>The game card slot can be removed from the console. Firstly, take out the three PH00 silver screws holding the plastic tab for the audio jack and 
                     the one holding the game card slot in place. Make sure the ribbon cable for the touch screen is also removed. Pry up on the connector for the game card slot for the motherboard, and set it aside. 
                     </p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
                 '''
             },
             {
@@ -106,6 +130,9 @@ def switch_disassembly():
                     locking flip and use your spudger to gently lift it up 90 degrees. The cable should loosen 
                     automatically, allowing you to carefully pull it straight out. Make note of cable routing and 
                     orientation. The fan cable is right next to the power button cable, and the Wi-Fi cables are close to that, as shown in the photo. </p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
                 ''',
                 'warning': 'Ribbon cables are extremely fragile. Never force them or pull at an angle. If a cable feels stuck, double-check that the locking flip is fully released.'
             },
@@ -114,6 +141,9 @@ def switch_disassembly():
                 'content': '''
                     <p>There are three black PH00 screws which hold the fan in place. Once these and the ribbon cable for it have been disconnected, the fan can be taken out of the console.
                     </p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
                 '''
             },
             {
@@ -121,6 +151,9 @@ def switch_disassembly():
                 'content': '''
                     <p>There are four black PH00 cables which secure the motherboard into the console, and two silver ones by the charging port. Remove all of these from the console, and the motherboard can now be removed from the housing. 
                     </p>
+                    <div class="guide-image">
+                        <img src="/static/images/guides/switch/disassembly/step2.jpg" alt="Corner screw locations">
+                    </div>
                 '''
             },
             
@@ -196,77 +229,12 @@ def switch_joycon():
     }
     return render_template('guides/guide.html', **guide_content)
 
-@nintendo_bp.route('/guides/switch-battery.html')
-def switch_battery():
-    content = {
-        'console_tag': "nintendo",
-        'console_name': "Nintendo Switch",
-        'guide_title': "Battery Replacement Guide",
-        'overview': '''
-            <p>Replace your Nintendo Switch's degraded battery to restore its original battery life. 
-            This guide walks you through safely removing the old battery and installing a new one.</p>
-        ''',
-        'tools': [
-            'Y00 tri-wing screwdriver',
-            'Phillips head screwdriver',
-            'Plastic pry tools',
-            'Replacement battery',
-            'Heat gun or hair dryer (optional)',
-            'Tweezers'
-        ],
-        'steps': [
-            {
-                'title': 'Prepare Your Switch',
-                'content': '''
-                    <p>Power down your Switch completely and remove all accessories. 
-                    Remove the Joy-Cons and microSD card if installed.</p>
-                '''
-            },
-            {
-                'title': 'Remove Back Cover',
-                'content': '''
-                    <p>Remove all screws from the back cover using the tri-wing screwdriver.
-                    Carefully lift the back cover starting from the top corners.</p>
-                ''',
-                'warning': 'There are hidden clips that may break if forced.'
-            },
-            {
-                'title': 'Disconnect and Remove Battery',
-                'content': '''
-                    <p>Locate the battery connector and carefully disconnect it.
-                    If the battery is adhered, use gentle heat to loosen the adhesive.
-                    Slowly pry up the battery using plastic tools.</p>
-                ''',
-                'warning': 'Never pierce or bend the battery as it may cause a fire.'
-            },
-            {
-                'title': 'Install New Battery',
-                'content': '''
-                    <p>Place the new battery in the same orientation as the old one.
-                    Connect the battery cable, ensuring it's fully seated.
-                    Secure any adhesive strips if included with replacement.</p>
-                '''
-            }
-        ],
-        'troubleshooting': [
-            {
-                'problem': 'Switch won\'t power on after replacement',
-                'solution': 'Check that the battery connector is fully seated and properly oriented.'
-            },
-            {
-                'problem': 'Battery percentage incorrect',
-                'solution': 'Fully discharge and recharge the battery to calibrate it.'
-            }
-        ]
-    }
-    return render_template('guides/guide.html', **content)
-
 @nintendo_bp.route('/guides/switch-screen.html')
 def switch_screen():
     content = {
         'console_tag': "nintendo",
         'console_name': "Nintendo Switch",
-        'guide_title': "Screen Replacement Guide",
+        'guide_title': "Touch Screen/LCD Screen Replacement Guide",
         'overview': '''
             <p>Replace a cracked or malfunctioning Nintendo Switch LCD screen. 
             This guide covers safely removing the damaged screen and installing a new one.</p>
