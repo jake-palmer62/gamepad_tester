@@ -95,7 +95,7 @@ def switch_disassembly():
                 'content': '''
                     <p>Using a spudger and not tweezers, lift the battery connector directly up and away from the console.</p>
                     <div class="guide-image">
-                        <img src="/static/images/guides/switch/disassembly/step7.jpg" alt="Corner screw locations">
+                        <img src="/static/images/guides/switch/disassembly/step7.png" alt="Corner screw locations">
                     </div>
                 ''',
                 'warning': 'Battery disconnection is a crucial safety step before proceeding with further disassembly. Do not disconnect any ribbon cables before completing this step.'
